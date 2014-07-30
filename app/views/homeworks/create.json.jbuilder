@@ -1,0 +1,1 @@
+json.extract! @homework, :id, :student_id, :lecture_id

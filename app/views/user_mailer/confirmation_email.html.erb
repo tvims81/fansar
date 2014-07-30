@@ -1,0 +1,10 @@
+Здравствуйте, <%= @user.name %>
+Подтвердите свой аккаунт.
+Сыллка для подтверждения : 
+<% if @user.class.name == "Teacher" %>
+<%= link_to 'Подтвердить аккаунт', registration_confirm_teacher_url( @user,
+	:host => "localhost:3000" , confirmation_token: @user.confirmation_token )%>
+<% else %>
+<%= link_to 'Подтвердить аккаунт', registration_confirm_student_url( @user,
+	:host => "localhost:3000" , confirmation_token: @user.confirmation_token )%>
+<% end %>

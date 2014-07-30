@@ -1,0 +1,4 @@
+Ученик
+<%= link_to @student.name, student_url(@student, :host => "localhost:3000") %> 
+сдал домашнюю работу по лекции: 
+<%= link_to @lecture.name, lecture_url(@lecture, :host => "localhost:3000") %>

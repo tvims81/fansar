@@ -1,0 +1,21 @@
+
+development:
+  adapter: postgresql
+  host: localhost
+  pool: 5
+  database: db/fansar_dev
+  username: postgres
+  # password: 123123
+
+test:
+  adapter: postgresql
+  database: db/fansar_test
+  pool: 5
+  username: postgres
+  timeout: 5000
+
+production:
+  adapter: sqlite3
+  database: db/production.sqlite3
+  pool: 5
+  timeout: 5000

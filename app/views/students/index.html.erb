@@ -1,0 +1,28 @@
+<%= search_form_for @search, url: students_path, method: :get do |f| %>
+  <%= f.condition_fields do |c| %>
+    <%= render "condition_fields", f: c %>
+  <% end %>
+  <p><%= link_to_add_fields "Add Conditions", f, :condition %></p>
+  <div class="field">
+    Sort:
+    <%= f.sort_fields do |s| %>
+      <%= s.sort_select %>
+    <% end %>
+  </div>
+  <div class="actions"><%= f.submit "Search" %></div>
+<% end %>
+
+<table id="students">
+  <tr>
+    <th><%= sort_link @search, :name, "Student Name" %></th>
+    <th><%= sort_link @search, :email, "Student Email" %></th>
+    <th><%= sort_link @search, :created_at, "Created" %></th>
+  </tr>
+<% @students.each do |student| %>
+  <tr>
+    <td><%= link_to(student.name, student) %></td>
+    <td><%= student.email %></td>
+    <td><%= student.created_at.strftime("%B %e, %Y") %></td>
+  </tr>
+<% end %>
+</table>
