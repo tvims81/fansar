@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 
-gem 'rails', '4.1.0'
+gem 'rails', '~> 4.1.4'
 gem 'cocoon'
 gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate', '0.0.9'
@@ -28,3 +28,6 @@ gem 'faker'
 gem 'draper'
 gem 'date_validator'
 gem 'ransack', '1.2.3'
+gem 'devise'
+gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'kaminari'

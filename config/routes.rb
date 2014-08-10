@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
 
+  
   mount Ckeditor::Engine => '/ckeditor'
 
   resources :teachers, only: [:create, :destroy, :update, :show, :index] do
@@ -41,6 +44,12 @@ Rails.application.routes.draw do
   resource :student_session, only: [:create, :destroy] do
     post :forgot_password
   end
+
+  namespace :admin do
+    resources :students, :teachers, :lectures, :notices
+  end
+
+  
 
 
 

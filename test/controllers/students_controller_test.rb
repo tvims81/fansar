@@ -17,7 +17,8 @@ class StudentsControllerTest < ActionController::TestCase
 
   test "should update_password" do
     student_sign_in @student
-    post :update_password, { id: @student.id , student: { password: "111111", password_confirmation: "111111" }, format: :json }
+    post :update_password, { id: @student.id , student: { password: "111111", 
+    						password_confirmation: "111111" }, format: :json }
     assert_response :success
   end
 

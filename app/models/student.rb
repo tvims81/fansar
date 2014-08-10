@@ -23,9 +23,6 @@ class Student < ActiveRecord::Base
 		event :archive do
 			transition :active => :archived
 		end
-		
-
-
 	end
 
 

@@ -20,7 +20,7 @@
   </tr>
 <% @students.each do |student| %>
   <tr>
-    <td><%= link_to(student.name, student) %></td>
+    <td><%= student.name %></td>
     <td><%= student.email %></td>
     <td><%= student.created_at.strftime("%B %e, %Y") %></td>
   </tr>

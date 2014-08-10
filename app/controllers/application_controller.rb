@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base 
-  respond_to :json
+  respond_to :json, :xml, :html
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found  
 
   include ApplicationHelper
