@@ -18,8 +18,7 @@ module SessionsHelper
  	def sign_out
  		session[:teacher_id] = nil
  		session[:student_id] = nil
- 	end
- 	
+ 	end 	
 
 
   def current_user

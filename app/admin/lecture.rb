@@ -1,5 +1,7 @@
 ActiveAdmin.register Lecture do
 
+  permit_params :name, :subject_id, :teacher_id
+
 
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

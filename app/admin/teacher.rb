@@ -1,5 +1,7 @@
 ActiveAdmin.register Teacher do
 
+  permit_params :name, :email, :password_diggest, :state, :avatar, :birthday, :phone, :city, :surname, :middlename
+
 
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
