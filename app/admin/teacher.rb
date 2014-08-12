@@ -1,7 +1,31 @@
 ActiveAdmin.register Teacher do
 
-  permit_params :name, :email, :password_diggest, :state, :avatar, :birthday, :phone, :city, :surname, :middlename
-
+  permit_params :name, :email, :password, :password_confirmation, :state, :avatar, :birthday, :phone, :city, :surname, :middlename
+=begin
+  controller do
+    def new
+      form_for :teacher do |f|
+        f.inputs "Teacher Details" do
+          f.input :name
+          f.input :email
+          f.input :password
+          f.input :password_confirmation
+        end
+        f.actions
+      end
+    end  
+  end
+=end
+  
+  form do |f|
+    f.inputs "Teacher Details" do
+      f.input :name
+      f.input :email
+      f.input :password
+      f.input :password_confirmation
+    end
+    f.actions
+  end
 
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

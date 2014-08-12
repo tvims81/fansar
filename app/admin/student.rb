@@ -9,8 +9,19 @@ ActiveAdmin.register Student do
     actions
   end
 
-  permit_params :name, :email, :password_digest, :state, :grade, :avatar, :birthday,
+  permit_params :name, :email, :password, :password_confirmation, :state, :grade, :avatar, :birthday,
                 :phone, :city, :surname, :middlename, :school
+
+
+  form do |f|
+    f.inputs "Student Details" do
+      f.input :name
+      f.input :email
+      f.input :password
+      f.input :password_confirmation
+    end
+    f.actions
+  end
 
 
   # See permitted parameters documentation:
