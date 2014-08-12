@@ -5,8 +5,12 @@ ActiveAdmin.register Student do
     column :grade
     column "Created", :created_at
     column "Updated", :updated_at
-
+    column :state
+    actions
   end
+
+  permit_params :name, :email, :password_digest, :state, :grade, :avatar, :birthday,
+                :phone, :city, :surname, :middlename, :school
 
 
   # See permitted parameters documentation:
