@@ -23,6 +23,7 @@ ActiveAdmin.register Teacher do
       f.input :email
       f.input :password
       f.input :password_confirmation
+      f.input :state
     end
     f.actions
   end
