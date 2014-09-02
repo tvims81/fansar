@@ -2,8 +2,8 @@ Rails.application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+  root to: 'admin#index'
 
-  
   mount Ckeditor::Engine => '/ckeditor'
 
   resources :teachers, only: [:create, :destroy, :update, :show, :index] do
@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       get :registration_confirm
       get :reset_password
       post :update_password
+      get :invitation_confirm
     end
   end
 
@@ -22,7 +23,7 @@ Rails.application.routes.draw do
       post :subscribe_to_subject
     end
   end 
-  
+
   resources :lectures, only: [:create, :destroy, :update, :show, :index] do
     resources :homeworks, only: [:create, :destroy, :update, :index] do
       member do

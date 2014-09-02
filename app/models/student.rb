@@ -4,6 +4,8 @@ class Student < ActiveRecord::Base
 	has_secure_password
 	mount_uploader :avatar, AvatarUploader
 
+	
+
 
 	has_many :homeworks, dependent: :destroy 
  	has_many :notices, as: :noticable, dependent: :destroy

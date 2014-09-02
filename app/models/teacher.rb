@@ -36,5 +36,4 @@ class Teacher < ActiveRecord::Base
 		def confirmation_token_create
 			self.confirmation_token = SecureRandom.urlsafe_base64
 		end
-
 end

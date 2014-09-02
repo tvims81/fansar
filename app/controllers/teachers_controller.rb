@@ -48,6 +48,7 @@ class TeachersController < ApplicationController
 		@teacher = Teacher.find(params[:id])
 		if(@teacher.confirmation_token == params[:confirmation_token])
 			@teacher.confirm
+			render json: :nothing
 		end
   end
 

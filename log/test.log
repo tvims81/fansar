@@ -2781,3 +2781,1366 @@ Processing by LecturesController#update as JSON
 Filter chain halted as :lecture_destroy_and_update_authorize rendered or redirected
 Completed 401 Unauthorized in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms)
   [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (196.6ms)[0m  CREATE TABLE "active_admin_comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "namespace" varchar(255), "body" text, "resource_id" varchar(255) NOT NULL, "resource_type" varchar(255) NOT NULL, "author_id" integer, "author_type" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.2ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (110.0ms)[0m  CREATE  INDEX "index_active_admin_comments_on_author_type_and_author_id" ON "active_admin_comments" ("author_type", "author_id")
+  [1m[36m (0.4ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_active_admin_comments_on_author_type_and_author_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_active_admin_comments_on_author_type_and_author_id' AND type='index'
+[0m
+  [1m[35m (109.3ms)[0m  CREATE  INDEX "index_active_admin_comments_on_namespace" ON "active_admin_comments" ("namespace")
+  [1m[36m (0.4ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_active_admin_comments_on_namespace' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_active_admin_comments_on_namespace' AND type='index'
+[0m
+  [1m[35m (0.4ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_active_admin_comments_on_author_type_and_author_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_active_admin_comments_on_author_type_and_author_id' AND type='index'
+
+  [1m[36m (154.5ms)[0m  [1mCREATE  INDEX "index_active_admin_comments_on_resource_type_and_resource_id" ON "active_admin_comments" ("resource_type", "resource_id")[0m
+  [1m[35m (147.2ms)[0m  CREATE TABLE "admin_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '', "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime, "invitation_token" varchar(255), "invitation_created_at" datetime, "invitation_sent_at" datetime, "invitation_accepted_at" datetime, "invitation_limit" integer, "invited_by_id" integer, "invited_by_type" varchar(255), "invitations_count" integer DEFAULT 0) 
+  [1m[36m (123.4ms)[0m  [1mCREATE UNIQUE INDEX "index_admin_users_on_email" ON "admin_users" ("email")[0m
+  [1m[35m (0.4ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_admin_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_admin_users_on_email' AND type='index'
+
+  [1m[36m (209.9ms)[0m  [1mCREATE UNIQUE INDEX "index_admin_users_on_invitation_token" ON "admin_users" ("invitation_token")[0m
+  [1m[35m (0.4ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_admin_users_on_invitation_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_admin_users_on_invitation_token' AND type='index'
+
+  [1m[36m (0.4ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_admin_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_admin_users_on_email' AND type='index'
+[0m
+  [1m[35m (107.7ms)[0m  CREATE  INDEX "index_admin_users_on_invitations_count" ON "admin_users" ("invitations_count")
+  [1m[36m (0.4ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_admin_users_on_invitations_count' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_admin_users_on_invitations_count' AND type='index'
+[0m
+  [1m[35m (0.4ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_admin_users_on_invitation_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_admin_users_on_invitation_token' AND type='index'
+
+  [1m[36m (0.3ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_admin_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_admin_users_on_email' AND type='index'
+[0m
+  [1m[35m (107.7ms)[0m  CREATE  INDEX "index_admin_users_on_invited_by_id" ON "admin_users" ("invited_by_id")
+  [1m[36m (0.4ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_admin_users_on_invited_by_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_admin_users_on_invited_by_id' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_admin_users_on_invitations_count' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_admin_users_on_invitations_count' AND type='index'
+
+  [1m[36m (0.3ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_admin_users_on_invitation_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_admin_users_on_invitation_token' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_admin_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_admin_users_on_email' AND type='index'
+
+  [1m[36m (107.0ms)[0m  [1mCREATE UNIQUE INDEX "index_admin_users_on_reset_password_token" ON "admin_users" ("reset_password_token")[0m
+  [1m[35m (132.1ms)[0m  CREATE TABLE "admins" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT 'Админушка', "email" varchar(255), "password_digest" varchar(255), "confirmation_token" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (166.5ms)[0m  [1mDROP TABLE "ckeditor_assets"[0m
+  [1m[35m (133.2ms)[0m  CREATE TABLE "ckeditor_assets" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "data_file_name" varchar(255) NOT NULL, "data_content_type" varchar(255), "data_file_size" integer, "assetable_id" integer, "assetable_type" varchar(30), "type" varchar(30), "width" integer, "height" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (133.1ms)[0m  [1mCREATE  INDEX "idx_ckeditor_assetable" ON "ckeditor_assets" ("assetable_type", "assetable_id")[0m
+  [1m[35m (0.4ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='idx_ckeditor_assetable' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='idx_ckeditor_assetable' AND type='index'
+
+  [1m[36m (131.9ms)[0m  [1mCREATE  INDEX "idx_ckeditor_assetable_type" ON "ckeditor_assets" ("assetable_type", "type", "assetable_id")[0m
+  [1m[35m (122.3ms)[0m  DROP TABLE "delayed_jobs"
+  [1m[36m (133.8ms)[0m  [1mCREATE TABLE "delayed_jobs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "attempts" integer DEFAULT 0 NOT NULL, "handler" text NOT NULL, "last_error" text, "run_at" datetime, "locked_at" datetime, "failed_at" datetime, "locked_by" varchar(255), "queue" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (132.9ms)[0m  CREATE  INDEX "delayed_jobs_priority" ON "delayed_jobs" ("priority", "run_at")
+  [1m[36m (121.4ms)[0m  [1mDROP TABLE "documents"[0m
+  [1m[35m (133.3ms)[0m  CREATE TABLE "documents" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "docable_id" integer, "docable_type" varchar(255), "file" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (121.3ms)[0m  [1mDROP TABLE "homeworks"[0m
+  [1m[35m (133.4ms)[0m  CREATE TABLE "homeworks" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "lecture_id" integer, "created_at" datetime, "updated_at" datetime, "score" integer) 
+  [1m[36m (144.0ms)[0m  [1mCREATE UNIQUE INDEX "index_homeworks_on_lecture_id_and_student_id" ON "homeworks" ("lecture_id", "student_id")[0m
+  [1m[35m (132.3ms)[0m  DROP TABLE "lectures"
+  [1m[36m (363.8ms)[0m  [1mCREATE TABLE "lectures" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "subject_id" integer, "teacher_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (247.2ms)[0m  DROP TABLE "notices"
+  [1m[36m (146.3ms)[0m  [1mCREATE TABLE "notices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "text" varchar(255), "noticable_id" integer, "noticable_type" varchar(255), "state" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (132.1ms)[0m  DROP TABLE "students"
+  [1m[36m (155.2ms)[0m  [1mCREATE TABLE "students" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT 'Ученик', "email" varchar(255), "password_digest" varchar(255), "confirmation_token" varchar(255), "state" varchar(255), "grade" integer DEFAULT 9, "created_at" datetime, "updated_at" datetime, "avatar" varchar(255), "birthday" date, "phone" varchar(255), "city" varchar(255), "surname" varchar(255), "middlename" varchar(255), "school" varchar(255), "reset_password_token" varchar(255)) [0m
+  [1m[35m (143.9ms)[0m  CREATE UNIQUE INDEX "index_students_on_email" ON "students" ("email")
+  [1m[36m (132.2ms)[0m  [1mDROP TABLE "subject_students"[0m
+  [1m[35m (144.4ms)[0m  CREATE TABLE "subject_students" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "subject_id" integer, "created_at" datetime, "updated_at" datetime, "average_score" integer DEFAULT 0, "homeworks_count" integer DEFAULT 0) 
+  [1m[36m (166.0ms)[0m  [1mCREATE UNIQUE INDEX "index_subject_students_on_subject_id_and_student_id" ON "subject_students" ("subject_id", "student_id")[0m
+  [1m[35m (143.4ms)[0m  DROP TABLE "subject_teachers"
+  [1m[36m (155.5ms)[0m  [1mCREATE TABLE "subject_teachers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "teacher_id" integer, "subject_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (154.9ms)[0m  CREATE UNIQUE INDEX "index_subject_teachers_on_subject_id_and_teacher_id" ON "subject_teachers" ("subject_id", "teacher_id")
+  [1m[36m (143.2ms)[0m  [1mDROP TABLE "subjects"[0m
+  [1m[35m (145.0ms)[0m  CREATE TABLE "subjects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime, "average_score" integer DEFAULT 0) 
+  [1m[36m (134.0ms)[0m  [1mDROP TABLE "teachers"[0m
+  [1m[35m (155.2ms)[0m  CREATE TABLE "teachers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT 'Преподаватель', "email" varchar(255), "password_digest" varchar(255), "confirmation_token" varchar(255), "state" varchar(255), "created_at" datetime, "updated_at" datetime, "avatar" varchar(255), "birthday" date, "phone" varchar(255), "city" varchar(255), "surname" varchar(255), "middlename" varchar(255), "reset_password_token" varchar(255)) 
+  [1m[36m (132.9ms)[0m  [1mCREATE UNIQUE INDEX "index_teachers_on_email" ON "teachers" ("email")[0m
+  [1m[35m (132.2ms)[0m  DROP TABLE "videos"
+  [1m[36m (144.6ms)[0m  [1mCREATE TABLE "videos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "lecture_id" integer, "code" text, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.4ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (142.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140827090621')[0m
+  [1m[35m (144.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140804102333')
+  [1m[36m (144.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140808105637')[0m
+  [1m[35m (144.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140808105634')
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "teachers"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "teachers" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2014-09-02 09:30:23', '2014-09-02 09:30:23', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "teachers" ("name", "created_at", "updated_at", "id") VALUES ('MyString', '2014-09-02 09:30:23', '2014-09-02 09:30:23', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "students"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "students" ("created_at", "updated_at", "id") VALUES ('2014-09-02 09:30:23', '2014-09-02 09:30:23', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "students" ("created_at", "updated_at", "id") VALUES ('2014-09-02 09:30:23', '2014-09-02 09:30:23', 298486374)
+  [1m[36m (143.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+--------------------------------------------------------
+HomeworksControllerTest: test_should_create_with_student
+--------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "students" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmation_token", "ftHNbu4JTE5V1OqEhrGpXQ"], ["created_at", "2014-09-02 09:30:24.038304"], ["email", "lorem@robel.biz"], ["name", "Student"], ["password_digest", "$2a$04$YOQQt0K6PTcZBRsVVngcfuUVxs0POqetFshZKQz3ima9y10MIDK7a"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.038304"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["confirmation_token", "HWi4LCXP3b8TjlHoQBqYCA"], ["created_at", "2014-09-02 09:30:24.044467"], ["email", "lorem@daugherty.org"], ["name", "Student"], ["password_digest", "$2a$04$FOPhN/CWucn8VAiErKSLZODvhXH8y6UgdTVk/LychanV.s2s/CTcy"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.044467"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "teachers" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmation_token", "f8PsXxmrwv5r31ShhOee6Q"], ["created_at", "2014-09-02 09:30:24.066837"], ["email", "lorem@ondricka.net"], ["name", "Alexander"], ["password_digest", "$2a$04$ReIBEzM5MhlDF7gaSzKUrOVPyQqAO4beqbEdmCIwH.nJA9TttJG12"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.066837"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "subjects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-09-02 09:30:24.073999"], ["name", "Математика"], ["updated_at", "2014-09-02 09:30:24.073999"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "lectures" ("created_at", "name", "subject_id", "teacher_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2014-09-02 09:30:24.076341"], ["name", "Lecture"], ["subject_id", 1], ["teacher_id", 980190963], ["updated_at", "2014-09-02 09:30:24.076341"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "homeworks" ("created_at", "lecture_id", "score", "student_id", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2014-09-02 09:30:24.082208"], ["lecture_id", 1], ["score", 0], ["student_id", 980190964], ["updated_at", "2014-09-02 09:30:24.082208"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "teachers" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmation_token", "Y1V-fchAbMLfdOmEuPb_Kw"], ["created_at", "2014-09-02 09:30:24.087002"], ["email", "lorem@schaefer.net"], ["name", "Alexander"], ["password_digest", "$2a$04$6je4SC9qsJOE/iLktfFWCODFyM0Gs5FnFWlAwpaSAC/zJlY3BBdx6"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.087002"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "subjects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-09-02 09:30:24.088701"], ["name", "Математика"], ["updated_at", "2014-09-02 09:30:24.088701"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "lectures" ("created_at", "name", "subject_id", "teacher_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2014-09-02 09:30:24.089834"], ["name", "Lecture"], ["subject_id", 2], ["teacher_id", 980190964], ["updated_at", "2014-09-02 09:30:24.089834"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by HomeworksController#create as JSON
+  Parameters: {"homework"=>{"documents_attributes"=>{}}, "lecture_id"=>"2"}
+  [1m[35mStudent Load (0.5ms)[0m  SELECT  "students".* FROM "students"  WHERE "students"."id" = ? LIMIT 1  [["id", 980190964]]
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students"  WHERE "students"."id" = ? LIMIT 1[0m  [["id", 980190964]]
+  [1m[35mLecture Load (0.2ms)[0m  SELECT  "lectures".* FROM "lectures"  WHERE "lectures"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mHomeworkType Exists (0.1ms)[0m  SELECT  1 AS one FROM "homeworks"  WHERE ("homeworks"."student_id" = 980190964 AND "homeworks"."lecture_id" = 2) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "homeworks" ("created_at", "lecture_id", "score", "student_id", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2014-09-02 09:30:24.269600"], ["lecture_id", 2], ["score", 0], ["student_id", 980190964], ["updated_at", "2014-09-02 09:30:24.269600"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 500 Internal Server Error in 150ms
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------------
+HomeworksControllerTest: test_should_create_with_teacher
+--------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmation_token", "5meJiLIUJ4eFCpvnoSF7_A"], ["created_at", "2014-09-02 09:30:24.277792"], ["email", "lorem@baileyankunding.net"], ["name", "Student"], ["password_digest", "$2a$04$J5ZXwmWYEzgodV9Rpo7a7O00RZlNL3qCZThy9bI4rsSOgFupNdY/u"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.277792"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["confirmation_token", "U1NRi4iuzpSjNf4_9iUJEg"], ["created_at", "2014-09-02 09:30:24.281785"], ["email", "lorem@goodwin.com"], ["name", "Student"], ["password_digest", "$2a$04$qb1xoNxrLSI07xqSonc5U.FpXeid4.wgctcXFC7SGSXpXkdlby7uq"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.281785"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "teachers" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmation_token", "NXpxDlZ0mU8XQW7iAtHFEg"], ["created_at", "2014-09-02 09:30:24.286187"], ["email", "lorem@mohr.biz"], ["name", "Alexander"], ["password_digest", "$2a$04$yaeUgqXcW8xUkerYrWJ1mOkWR9wGTmTSz/mCoK1r9RnzHNojn73gu"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.286187"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "subjects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-09-02 09:30:24.288085"], ["name", "Математика"], ["updated_at", "2014-09-02 09:30:24.288085"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "lectures" ("created_at", "name", "subject_id", "teacher_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2014-09-02 09:30:24.289314"], ["name", "Lecture"], ["subject_id", 1], ["teacher_id", 980190963], ["updated_at", "2014-09-02 09:30:24.289314"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "homeworks" ("created_at", "lecture_id", "score", "student_id", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2014-09-02 09:30:24.290546"], ["lecture_id", 1], ["score", 0], ["student_id", 980190964], ["updated_at", "2014-09-02 09:30:24.290546"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "teachers" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmation_token", "t4e86gdLCzwu1M5WyTzLXg"], ["created_at", "2014-09-02 09:30:24.294654"], ["email", "lorem@lesch.net"], ["name", "Alexander"], ["password_digest", "$2a$04$PBVE6uIbKFDDxev6A2jm/.YOS20JewbIWAkvmsC8dsNzjxjieI4wC"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.294654"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "subjects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-09-02 09:30:24.296298"], ["name", "Математика"], ["updated_at", "2014-09-02 09:30:24.296298"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "lectures" ("created_at", "name", "subject_id", "teacher_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2014-09-02 09:30:24.297377"], ["name", "Lecture"], ["subject_id", 2], ["teacher_id", 980190964], ["updated_at", "2014-09-02 09:30:24.297377"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "teachers" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["confirmation_token", "8UP0ztgBnsEY5AEGvnzEGQ"], ["created_at", "2014-09-02 09:30:24.301330"], ["email", "lorem@monahan.biz"], ["name", "Alexander"], ["password_digest", "$2a$04$HXYDGrkhkQOuIB9foMonMuhlyl.jRiPNmKiD1NJHI1xCKagFBFWtm"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.301330"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by HomeworksController#create as JSON
+  Parameters: {"homework"=>{"documents_attributes"=>{}}, "lecture_id"=>"2"}
+  [1m[36mTeacher Load (0.2ms)[0m  [1mSELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = ? LIMIT 1[0m  [["id", 980190965]]
+Filter chain halted as :homework_create_authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------------------------
+HomeworksControllerTest: test_should_create_with_unauthenticated_user
+---------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["confirmation_token", "Kn02C52Hkk9S7Rj4AE921g"], ["created_at", "2014-09-02 09:30:24.309693"], ["email", "lorem@hilll.name"], ["name", "Student"], ["password_digest", "$2a$04$LnS2SMVYG/erw859RLNpRuwMJzR.Jvz54RjX8gK8nRXuj.oqz9.KK"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.309693"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmation_token", "RDTiCIGwg9VHIiowNOsPPg"], ["created_at", "2014-09-02 09:30:24.313797"], ["email", "lorem@bins.com"], ["name", "Student"], ["password_digest", "$2a$04$qQRXM916coNKRI8M9qXjFO3qmnbgdg7SU/EZmk..JVHu/yBfDbryS"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.313797"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "teachers" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["confirmation_token", "MzROrodQJYKOTMOZxhPvaQ"], ["created_at", "2014-09-02 09:30:24.317727"], ["email", "lorem@watersledner.com"], ["name", "Alexander"], ["password_digest", "$2a$04$6I6cWw8o43OItFOUDTLuGut9Vu3Jl86pJU..ZnqDTbifqeiWN0k6G"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.317727"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "subjects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-09-02 09:30:24.319429"], ["name", "Математика"], ["updated_at", "2014-09-02 09:30:24.319429"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "lectures" ("created_at", "name", "subject_id", "teacher_id", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2014-09-02 09:30:24.320574"], ["name", "Lecture"], ["subject_id", 1], ["teacher_id", 980190963], ["updated_at", "2014-09-02 09:30:24.320574"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "homeworks" ("created_at", "lecture_id", "score", "student_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2014-09-02 09:30:24.321837"], ["lecture_id", 1], ["score", 0], ["student_id", 980190964], ["updated_at", "2014-09-02 09:30:24.321837"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "teachers" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["confirmation_token", "p0faL7n3A8K77iULJOSimQ"], ["created_at", "2014-09-02 09:30:24.326013"], ["email", "lorem@gutmann.com"], ["name", "Alexander"], ["password_digest", "$2a$04$XgmloejCW84.ClPUb9QZ9uQBkbUIyissJJMxHaKUvMgYOxhYXpjzi"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.326013"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "subjects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-09-02 09:30:24.327650"], ["name", "Математика"], ["updated_at", "2014-09-02 09:30:24.327650"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "lectures" ("created_at", "name", "subject_id", "teacher_id", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2014-09-02 09:30:24.328782"], ["name", "Lecture"], ["subject_id", 2], ["teacher_id", 980190964], ["updated_at", "2014-09-02 09:30:24.328782"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by HomeworksController#create as JSON
+  Parameters: {"homework"=>{"documents_attributes"=>{}}, "lecture_id"=>"2"}
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 403 Forbidden in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------------------------------
+HomeworksControllerTest: test_should_destroy_with_authorized_student
+--------------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmation_token", "D5JeEDI_vXUE85QZDGvZNw"], ["created_at", "2014-09-02 09:30:24.336480"], ["email", "lorem@balistrericollier.net"], ["name", "Student"], ["password_digest", "$2a$04$wEoRaBEFFqO2nG6dm1XAw.Ei8PaKRR397z6ZphvycHIp7CFVYywlO"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.336480"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["confirmation_token", "6LP-1cd7B7Wx3rQS8qxUhw"], ["created_at", "2014-09-02 09:30:24.340658"], ["email", "lorem@koepp.biz"], ["name", "Student"], ["password_digest", "$2a$04$brb47Iv41j0chh5CLKfKQuyNVtalLWjG6hUyEJYQBTIHVv1PN1VWK"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.340658"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "teachers" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmation_token", "XP_WztaPymB6hqxeWDyvGA"], ["created_at", "2014-09-02 09:30:24.344690"], ["email", "lorem@mayertgaylord.name"], ["name", "Alexander"], ["password_digest", "$2a$04$jHkaKWAtwniNX6OohFIXzOtjXMFHBYBB.CNCJBIsv9w2XfIu3oYRm"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.344690"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "subjects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-09-02 09:30:24.346412"], ["name", "Математика"], ["updated_at", "2014-09-02 09:30:24.346412"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "lectures" ("created_at", "name", "subject_id", "teacher_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2014-09-02 09:30:24.347542"], ["name", "Lecture"], ["subject_id", 1], ["teacher_id", 980190963], ["updated_at", "2014-09-02 09:30:24.347542"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "homeworks" ("created_at", "lecture_id", "score", "student_id", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2014-09-02 09:30:24.348741"], ["lecture_id", 1], ["score", 0], ["student_id", 980190964], ["updated_at", "2014-09-02 09:30:24.348741"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by HomeworksController#destroy as JSON
+  Parameters: {"lecture_id"=>"1", "id"=>"1"}
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students"  WHERE "students"."id" = ? LIMIT 1[0m  [["id", 980190964]]
+  [1m[35mHomeworkType Load (0.1ms)[0m  SELECT  "homeworks".* FROM "homeworks"  WHERE "homeworks"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mStudent Load (0.0ms)[0m  [1mSELECT  "students".* FROM "students"  WHERE "students"."id" = ? LIMIT 1[0m  [["id", 980190964]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mDocument Load (0.1ms)[0m  [1mSELECT "documents".* FROM "documents"  WHERE "documents"."docable_id" = ? AND "documents"."docable_type" = ?[0m  [["docable_id", 1], ["docable_type", "Homework"]]
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "homeworks" WHERE "homeworks"."id" = ?  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mLecture Load (0.1ms)[0m  SELECT  "lectures".* FROM "lectures"  WHERE "lectures"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "delayed_jobs" ("created_at", "handler", "run_at", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", "2014-09-02 09:30:24.370330"], ["handler", "--- !ruby/object:Delayed::PerformableMethod\nobject: !ruby/class 'SubjectStudent'\nmethod_name: :calculate_average_score_and_homeworks_count_for\nargs:\n- !ruby/ActiveRecord:Student\n  attributes:\n    id: 980190964\n    name: Student\n    email: lorem@koepp.biz\n    password_digest: $2a$04$brb47Iv41j0chh5CLKfKQuyNVtalLWjG6hUyEJYQBTIHVv1PN1VWK\n    confirmation_token: 6LP-1cd7B7Wx3rQS8qxUhw\n    state: inactive\n    grade: 9\n    created_at: 2014-09-02 09:30:24.340658000 Z\n    updated_at: 2014-09-02 09:30:24.340658000 Z\n    avatar: \n    birthday: \n    phone: \n    city: \n    surname: \n    middlename: \n    school: \n    reset_password_token: \n- !ruby/ActiveRecord:Lecture\n  attributes:\n    id: 1\n    name: Lecture\n    subject_id: 1\n    teacher_id: 980190963\n    created_at: 2014-09-02 09:30:24.347542000 Z\n    updated_at: 2014-09-02 09:30:24.347542000 Z\n"], ["run_at", "2014-09-02 09:30:24.370225"], ["updated_at", "2014-09-02 09:30:24.370330"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 20ms (Views: 0.2ms | ActiveRecord: 1.1ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------------------------
+HomeworksControllerTest: test_should_destroy_with_unauthorized_student
+----------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["confirmation_token", "WbmhhYNDf7sr97VAM13J8Q"], ["created_at", "2014-09-02 09:30:24.375901"], ["email", "lorem@rempel.info"], ["name", "Student"], ["password_digest", "$2a$04$bjzmPP1fjHJDbbiTUkjhM.Y0jMsiviYgzPnKKbWLzRqvcgXmrKnpK"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.375901"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmation_token", "Y76QliWisibDH7dkV_VYgA"], ["created_at", "2014-09-02 09:30:24.379710"], ["email", "lorem@gutkowskiko.net"], ["name", "Student"], ["password_digest", "$2a$04$gPO5fyJpUk0WhIlMeIIuQeZqHYZWvAr8cwYkAwPTFGT8rFnagmfOO"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.379710"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "teachers" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["confirmation_token", "LGG197KL4BOMd4JiXOE9wg"], ["created_at", "2014-09-02 09:30:24.383690"], ["email", "lorem@walsh.org"], ["name", "Alexander"], ["password_digest", "$2a$04$qu91SFwVeq2.3vuhFv2ul.C3wSUJmmNqWlejtpRk3xhvQHkIsoi8S"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.383690"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "subjects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-09-02 09:30:24.385553"], ["name", "Математика"], ["updated_at", "2014-09-02 09:30:24.385553"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "lectures" ("created_at", "name", "subject_id", "teacher_id", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2014-09-02 09:30:24.386793"], ["name", "Lecture"], ["subject_id", 1], ["teacher_id", 980190963], ["updated_at", "2014-09-02 09:30:24.386793"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "homeworks" ("created_at", "lecture_id", "score", "student_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2014-09-02 09:30:24.387917"], ["lecture_id", 1], ["score", 0], ["student_id", 980190964], ["updated_at", "2014-09-02 09:30:24.387917"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by HomeworksController#destroy as JSON
+  Parameters: {"lecture_id"=>"1", "id"=>"1"}
+  [1m[35mStudent Load (0.1ms)[0m  SELECT  "students".* FROM "students"  WHERE "students"."id" = ? LIMIT 1  [["id", 980190963]]
+  [1m[36mHomeworkType Load (0.0ms)[0m  [1mSELECT  "homeworks".* FROM "homeworks"  WHERE "homeworks"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mStudent Load (0.0ms)[0m  SELECT  "students".* FROM "students"  WHERE "students"."id" = ? LIMIT 1  [["id", 980190964]]
+Filter chain halted as :homework_destroy_and_update_authorize rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------------------------------------
+HomeworksControllerTest: test_should_rate_homework_with_authorized_teacher
+--------------------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmation_token", "pigX1fSLYI2MWH1zz4_uBA"], ["created_at", "2014-09-02 09:30:24.397873"], ["email", "lorem@koch.net"], ["name", "Student"], ["password_digest", "$2a$04$S2Yb3W1Sivn.6U20o4dXiO/wEEWRYLDNmQHaJ9awr2b1xd0FBrJWe"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.397873"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["confirmation_token", "ndhkGnRS_aoqpOH55oxJAQ"], ["created_at", "2014-09-02 09:30:24.402067"], ["email", "lorem@powlowski.com"], ["name", "Student"], ["password_digest", "$2a$04$zkqregso9TKIKDKWKCaaGen3NAOMBPBcDvlbDx8Lj6prrlEFp8Xti"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.402067"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "teachers" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmation_token", "qP1BU5FI22n_wNcAQggn3g"], ["created_at", "2014-09-02 09:30:24.406028"], ["email", "lorem@mcdermott.com"], ["name", "Alexander"], ["password_digest", "$2a$04$k42cQBwslrIbbXPRIdIJEOPpH73OdSTJFkIsgugU3kIsOXWj9BCYu"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.406028"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "subjects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-09-02 09:30:24.407743"], ["name", "Математика"], ["updated_at", "2014-09-02 09:30:24.407743"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "lectures" ("created_at", "name", "subject_id", "teacher_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2014-09-02 09:30:24.408934"], ["name", "Lecture"], ["subject_id", 1], ["teacher_id", 980190963], ["updated_at", "2014-09-02 09:30:24.408934"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "homeworks" ("created_at", "lecture_id", "score", "student_id", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2014-09-02 09:30:24.410113"], ["lecture_id", 1], ["score", 0], ["student_id", 980190964], ["updated_at", "2014-09-02 09:30:24.410113"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by HomeworksController#rate as HTML
+  Parameters: {"score"=>"100", "lecture_id"=>"1", "id"=>"1"}
+  [1m[36mTeacher Load (0.1ms)[0m  [1mSELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = ? LIMIT 1[0m  [["id", 980190963]]
+  [1m[35mHomeworkType Load (0.0ms)[0m  SELECT  "homeworks".* FROM "homeworks"  WHERE "homeworks"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mLecture Load (0.0ms)[0m  [1mSELECT  "lectures".* FROM "lectures"  WHERE "lectures"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mTeacher Load (0.0ms)[0m  SELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = ? LIMIT 1  [["id", 980190963]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mHomeworkType Exists (0.1ms)[0m  SELECT  1 AS one FROM "homeworks"  WHERE ("homeworks"."student_id" = 980190964 AND "homeworks"."id" != 1 AND "homeworks"."lecture_id" = 1) LIMIT 1
+  [1m[36mDocument Load (0.0ms)[0m  [1mSELECT "documents".* FROM "documents"  WHERE "documents"."docable_id" = ? AND "documents"."docable_type" = ?[0m  [["docable_id", 1], ["docable_type", "Homework"]]
+  [1m[35mSQL (0.1ms)[0m  UPDATE "homeworks" SET "score" = ?, "updated_at" = ? WHERE "homeworks"."id" = 1  [["score", 100], ["updated_at", "2014-09-02 09:30:24.417686"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Completed 500 Internal Server Error in 6ms
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------------------
+HomeworksControllerTest: test_should_update_with_authorized_student
+-------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["confirmation_token", "M23aXLR5EPjNXCKtLicE1A"], ["created_at", "2014-09-02 09:30:24.423688"], ["email", "lorem@vonko.org"], ["name", "Student"], ["password_digest", "$2a$04$puJGD0..ApwasAfisuTm3.5hr1n0BVUVw4euVo6cm0nlFgpU6sMNq"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.423688"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmation_token", "CDFQGl2b0Nwb70t1qWKcuw"], ["created_at", "2014-09-02 09:30:24.428515"], ["email", "lorem@grantemard.biz"], ["name", "Student"], ["password_digest", "$2a$04$wxsTH9L3b6kHJF0Eq6IocOMffCyphUu.wiSSCka2rWhQszRvrk8Ny"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.428515"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "teachers" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["confirmation_token", "fpqBOiKwS3cGRQ8Ksfy2ZA"], ["created_at", "2014-09-02 09:30:24.432744"], ["email", "lorem@walsh.biz"], ["name", "Alexander"], ["password_digest", "$2a$04$iGcAbPaoduuZ71.2/E7TdeFlCqDiq5yJN5mzX2Vhi9HKhUZz55yru"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.432744"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "subjects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-09-02 09:30:24.434466"], ["name", "Математика"], ["updated_at", "2014-09-02 09:30:24.434466"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "lectures" ("created_at", "name", "subject_id", "teacher_id", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2014-09-02 09:30:24.435621"], ["name", "Lecture"], ["subject_id", 1], ["teacher_id", 980190963], ["updated_at", "2014-09-02 09:30:24.435621"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "homeworks" ("created_at", "lecture_id", "score", "student_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2014-09-02 09:30:24.436750"], ["lecture_id", 1], ["score", 0], ["student_id", 980190964], ["updated_at", "2014-09-02 09:30:24.436750"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by HomeworksController#update as JSON
+  Parameters: {"homework"=>{"documents_attributes"=>{}}, "lecture_id"=>"1", "id"=>"1"}
+  [1m[35mStudent Load (0.1ms)[0m  SELECT  "students".* FROM "students"  WHERE "students"."id" = ? LIMIT 1  [["id", 980190964]]
+  [1m[36mHomeworkType Load (0.0ms)[0m  [1mSELECT  "homeworks".* FROM "homeworks"  WHERE "homeworks"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mStudent Load (0.0ms)[0m  SELECT  "students".* FROM "students"  WHERE "students"."id" = ? LIMIT 1  [["id", 980190964]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mHomeworkType Exists (0.1ms)[0m  SELECT  1 AS one FROM "homeworks"  WHERE ("homeworks"."student_id" = 980190964 AND "homeworks"."id" != 1 AND "homeworks"."lecture_id" = 1) LIMIT 1
+  [1m[36mDocument Load (0.0ms)[0m  [1mSELECT "documents".* FROM "documents"  WHERE "documents"."docable_id" = ? AND "documents"."docable_type" = ?[0m  [["docable_id", 1], ["docable_type", "Homework"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 500 Internal Server Error in 4ms
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------------------------------
+HomeworksControllerTest: test_should_update_with_unauthorized_student
+---------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmation_token", "gp74Mp9JULy1cX7Ty9UZ6g"], ["created_at", "2014-09-02 09:30:24.447857"], ["email", "lorem@hartmann.org"], ["name", "Student"], ["password_digest", "$2a$04$Wmak.z3/VTZ9JSsCGhnFauX2wK8Dj7j6gZtUpHjtyrqXDIl6Wdkci"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.447857"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["confirmation_token", "BlvWQZzzsRy7S6YGynf7DQ"], ["created_at", "2014-09-02 09:30:24.451944"], ["email", "lorem@stark.com"], ["name", "Student"], ["password_digest", "$2a$04$GTRvfjltLRj.FmsOpcGxbO9D6b.vO/h31Qcda6OjNeHZi6ccoM5bu"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.451944"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "teachers" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmation_token", "nhUn8mdu8FCELYSovPIBig"], ["created_at", "2014-09-02 09:30:24.456659"], ["email", "lorem@bechtelar.biz"], ["name", "Alexander"], ["password_digest", "$2a$04$KyZ4x8xzgB6aT6HdXEltt.V2PfMGR2wH2Lhh5MpGxHfEQFxsFROQq"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.456659"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "subjects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-09-02 09:30:24.458681"], ["name", "Математика"], ["updated_at", "2014-09-02 09:30:24.458681"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "lectures" ("created_at", "name", "subject_id", "teacher_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2014-09-02 09:30:24.459968"], ["name", "Lecture"], ["subject_id", 1], ["teacher_id", 980190963], ["updated_at", "2014-09-02 09:30:24.459968"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "homeworks" ("created_at", "lecture_id", "score", "student_id", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2014-09-02 09:30:24.461203"], ["lecture_id", 1], ["score", 0], ["student_id", 980190964], ["updated_at", "2014-09-02 09:30:24.461203"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by HomeworksController#update as JSON
+  Parameters: {"homework"=>{"documents_attributes"=>{}}, "lecture_id"=>"1", "id"=>"1"}
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students"  WHERE "students"."id" = ? LIMIT 1[0m  [["id", 980190963]]
+  [1m[35mHomeworkType Load (0.0ms)[0m  SELECT  "homeworks".* FROM "homeworks"  WHERE "homeworks"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mStudent Load (0.0ms)[0m  [1mSELECT  "students".* FROM "students"  WHERE "students"."id" = ? LIMIT 1[0m  [["id", 980190964]]
+Filter chain halted as :homework_destroy_and_update_authorize rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+TeachersControllerTest: test_should_create
+------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "teachers" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["confirmation_token", "tTJbU4g_ziCf93sCycBhBA"], ["created_at", "2014-09-02 09:30:24.473495"], ["email", "lorem@bayer.org"], ["name", "Alexander"], ["password_digest", "$2a$04$EMnX.JeTiZP56aOItTP7oO6dJBHIxYnNcBO88aiXQL9/1TrB37Hii"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.473495"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TeachersController#create as JSON
+  Parameters: {"teacher"=>{"email"=>"1nsaffff@mail.ru", "password"=>"[FILTERED]"}}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUsers::TeacherRegistrationType Exists (0.1ms)[0m  SELECT  1 AS one FROM "teachers"  WHERE "teachers"."email" = '1nsaffff@mail.ru' LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "teachers" ("confirmation_token", "created_at", "email", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["confirmation_token", "3gVMJq15ik3ryykjs_653A"], ["created_at", "2014-09-02 09:30:24.487217"], ["email", "1nsaffff@mail.ru"], ["password_digest", "$2a$04$sN7waS16qaWRHGIVAXsFW.EARWg.J1TrFM8Pu4XEVxhaHlxKvpyjm"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.487217"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+
+UserMailer#confirmation_email: processed outbound mail in 19.7ms
+
+Sent mail to 1nsaffff@mail.ru (7.8ms)
+Date: Tue, 02 Sep 2014 13:30:24 +0400
+From: fansarmailer@gmail.com
+To: 1nsaffff@mail.ru
+Message-ID: <54058e308f8d2_225d91e9489413@olegeg-RC530-RC730.mail>
+Subject: =?UTF-8?Q?=D0=9F=D0=BE=D0=B4=D1=82=D0=B2=D0=B5=D1=80=D0=B6=D0=B4=D0=B5=D0=BD=D0=B8=D0=B5?=
+ =?UTF-8?Q?_=D1=80=D0=B5=D0=B3=D0=B8=D1=81=D1=82=D1=80=D0=B0=D1=86=D0=B8=D0=B8?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: base64
+
+0JfQtNGA0LDQstGB0YLQstGD0LnRgtC1LCDQn9GA0LXQv9C+0LTQsNCy0LDR
+gtC10LvRjArQn9C+0LTRgtCy0LXRgNC00LjRgtC1INGB0LLQvtC5INCw0LrQ
+utCw0YPQvdGCLgrQodGL0LvQu9C60LAg0LTQu9GPINC/0L7QtNGC0LLQtdGA
+0LbQtNC10L3QuNGPIDogCjxhIGhyZWY9Imh0dHA6Ly9sb2NhbGhvc3Q6MzAw
+MC9zdHVkZW50cy85ODAxOTA5NjQvcmVnaXN0cmF0aW9uX2NvbmZpcm0/Y29u
+ZmlybWF0aW9uX3Rva2VuPTNnVk1KcTE1aWszcnl5a2pzXzY1M0EiPtCf0L7Q
+tNGC0LLQtdGA0LTQuNGC0Ywg0LDQutC60LDRg9C90YI8L2E+Cg==
+
+Completed 201 Created in 156ms (Views: 41.4ms | ActiveRecord: 0.6ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------------------------
+TeachersControllerTest: test_should_destroy_with_authorized_teacher
+-------------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "teachers" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmation_token", "YGe8sqUbTUEnQ0mUA1iYNA"], ["created_at", "2014-09-02 09:30:24.639216"], ["email", "lorem@okeefeorn.org"], ["name", "Alexander"], ["password_digest", "$2a$04$y6yTFCtqkMQT8ccgTd.kreJ48N/7mbsnjQWFHZk3s9GkyDxdbH2Na"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.639216"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by TeachersController#destroy as JSON
+  Parameters: {"id"=>"980190963"}
+  [1m[35mTeacher Load (0.1ms)[0m  SELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = ? LIMIT 1  [["id", 980190963]]
+  [1m[36mTeacher Load (0.0ms)[0m  [1mSELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = ? LIMIT 1[0m  [["id", 980190963]]
+  [1m[35mTeacher Load (0.0ms)[0m  SELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = ? LIMIT 1  [["id", 980190963]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mLecture Load (0.2ms)[0m  SELECT "lectures".* FROM "lectures"  WHERE "lectures"."teacher_id" = ?  [["teacher_id", 980190963]]
+  [1m[36mNotice Load (0.1ms)[0m  [1mSELECT "notices".* FROM "notices"  WHERE "notices"."noticable_id" = ? AND "notices"."noticable_type" = ?[0m  [["noticable_id", 980190963], ["noticable_type", "Teacher"]]
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "teachers" WHERE "teachers"."id" = ?  [["id", 980190963]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 7ms (Views: 1.3ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------------------
+TeachersControllerTest: test_should_destroy_with_unauthorized_user
+------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "teachers" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["confirmation_token", "YFfx9zeiLRFw49qntSeKrg"], ["created_at", "2014-09-02 09:30:24.653991"], ["email", "lorem@lesch.name"], ["name", "Alexander"], ["password_digest", "$2a$04$JQTfs/DS2vuxOYg3yttgyumJMV9lJ9X64BpjD8dUIjH1hhOCYdxCu"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.653991"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "teachers" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmation_token", "tesyWf8LyVS0akBJjC4oXA"], ["created_at", "2014-09-02 09:30:24.658615"], ["email", "lorem@walker.org"], ["name", "Alexander"], ["password_digest", "$2a$04$AdPpAlVRx1O.q3ghbFTDduC.cHpHw77Rqe3DffLqQNzxA06cWfxkq"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.658615"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by TeachersController#destroy as JSON
+  Parameters: {"id"=>"980190963"}
+  [1m[35mTeacher Load (0.1ms)[0m  SELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = ? LIMIT 1  [["id", 980190964]]
+  [1m[36mTeacher Load (0.1ms)[0m  [1mSELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = ? LIMIT 1[0m  [["id", 980190963]]
+Filter chain halted as :authorize_teacher rendered or redirected
+Completed 401 Unauthorized in 3ms (Views: 0.2ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+----------------------------------------------------------------------
+TeachersControllerTest: test_should_index_with_with_authenticated_user
+----------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "teachers" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["confirmation_token", "04wjp7lpeyeXgwVdryqucQ"], ["created_at", "2014-09-02 09:30:24.668160"], ["email", "lorem@abbott.net"], ["name", "Alexander"], ["password_digest", "$2a$04$wjfuz0cm2lg3sDiQmd.GTurS.3eO/6sc778XBZXa9mb5pd1SvCSzC"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.668160"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TeachersController#index as JSON
+  [1m[36mTeacher Load (0.1ms)[0m  [1mSELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = ? LIMIT 1[0m  [["id", 980190963]]
+  [1m[35mTeacher Load (0.2ms)[0m  SELECT "teachers".* FROM "teachers"
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------------------------------
+TeachersControllerTest: test_should_index_with_with_unauthenticated_user
+------------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "teachers" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmation_token", "OpLD5pWRXZFhxtkmtJy7tQ"], ["created_at", "2014-09-02 09:30:24.678970"], ["email", "lorem@walkerschiller.info"], ["name", "Alexander"], ["password_digest", "$2a$04$oX/EyvdWGy9mnu1OnXv3/.IW4AJlG22cK13UFw2Bu7Gc.5BRYyFCK"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.678970"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by TeachersController#index as JSON
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 403 Forbidden in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------
+TeachersControllerTest: test_should_registration_confirm
+--------------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "teachers" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["confirmation_token", "7za9lyGmlFSJXk-HhDi1Pw"], ["created_at", "2014-09-02 09:30:24.686995"], ["email", "lorem@muller.com"], ["name", "Alexander"], ["password_digest", "$2a$04$bs8FpB80shLL17QYR6ZZqOZzFMkgmbiOHw2HZVcEE2IYqebENj.Xq"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.686995"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TeachersController#registration_confirm as JSON
+  Parameters: {"confirmation_token"=>"7za9lyGmlFSJXk-HhDi1Pw", "id"=>"980190963"}
+  [1m[36mTeacher Load (0.1ms)[0m  [1mSELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = ? LIMIT 1[0m  [["id", 980190963]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "teachers" SET "confirmation_token" = ?, "state" = ?, "updated_at" = ? WHERE "teachers"."id" = 980190963[0m  [["confirmation_token", "q4cgQ6BC4EEh8W5FjmFl9g"], ["state", "active"], ["updated_at", "2014-09-02 09:30:24.692417"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------------
+TeachersControllerTest: test_should_show_with_teacher
+-----------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "teachers" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmation_token", "GhKZPG07OaXDWKVLACwY6w"], ["created_at", "2014-09-02 09:30:24.698700"], ["email", "lorem@stark.info"], ["name", "Alexander"], ["password_digest", "$2a$04$2MwvJJZCnjbCzFsq7.p66eCeVdasVI42y3GNzBq.JDhAz.lBCXi1W"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.698700"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by TeachersController#show as JSON
+  Parameters: {"id"=>"980190963"}
+  [1m[35mTeacher Load (0.1ms)[0m  SELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = ? LIMIT 1  [["id", 980190963]]
+  [1m[36mTeacher Load (0.0ms)[0m  [1mSELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = ? LIMIT 1[0m  [["id", 980190963]]
+  [1m[35mNotice Load (0.1ms)[0m  SELECT "notices".* FROM "notices"  WHERE "notices"."noticable_id" = ? AND "notices"."noticable_type" = ?  [["noticable_id", 980190963], ["noticable_type", "Teacher"]]
+Completed 200 OK in 4ms (Views: 2.3ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------------------------
+TeachersControllerTest: test_should_show_with_unauthenticated_user
+------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "teachers" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmation_token", "GkY-j6bwBkddYqefAzG3XA"], ["created_at", "2014-09-02 09:30:24.710345"], ["email", "lorem@quitzon.biz"], ["name", "Alexander"], ["password_digest", "$2a$04$U9AubyJTjrSiryjyBI3eJuW325uq9XtMEuKFThji1z2W0BYjzzRgy"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.710345"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by TeachersController#show as JSON
+  Parameters: {"id"=>"980190963"}
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 403 Forbidden in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------
+TeachersControllerTest: test_should_update_password
+---------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "teachers" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["confirmation_token", "ZdqwGFgCg6k4d4vzXDg-Dw"], ["created_at", "2014-09-02 09:30:24.718410"], ["email", "lorem@torp.biz"], ["name", "Alexander"], ["password_digest", "$2a$04$ujZvEaZK4CKyvXP4Gam2UuWJIlw4xg6Cdm/eSp1mTaCK5t0QgLkDW"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.718410"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TeachersController#update_password as JSON
+  Parameters: {"teacher"=>{"password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "id"=>"980190963"}
+  [1m[36mTeacher Load (0.1ms)[0m  [1mSELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = ? LIMIT 1[0m  [["id", 980190963]]
+  [1m[35mTeacher Load (0.0ms)[0m  SELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = ? LIMIT 1  [["id", 980190963]]
+  [1m[36mUsers::TeacherPasswordUpdateType Load (0.1ms)[0m  [1mSELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = ? LIMIT 1[0m  [["id", 980190963]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "teachers" SET "confirmation_token" = ?, "password_digest" = ?, "updated_at" = ? WHERE "teachers"."id" = 980190963[0m  [["confirmation_token", "cLxYx0N3HIBO2S2duhe8wg"], ["password_digest", "$2a$04$38kKUNu9R8b2zwEsfe380eNCSuOtS4gcTiUMc/yzYDcMd0nJSks5."], ["updated_at", "2014-09-02 09:30:24.739388"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 200 OK in 19ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------------------------
+TeachersControllerTest: test_should_update_with_unauthorized_user
+-----------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "teachers" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmation_token", "SNJHrZZui-FEpYwmVBBGvQ"], ["created_at", "2014-09-02 09:30:24.745305"], ["email", "lorem@bechtelarprice.org"], ["name", "Alexander"], ["password_digest", "$2a$04$TXgqui88UaCJGAz5eJ1PUuP/1ngeQU425c0YkN8kzsMO0N8vpPUiK"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.745305"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "teachers" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["confirmation_token", "Sbiylhlt6eTOOwKSxoYZow"], ["created_at", "2014-09-02 09:30:24.749739"], ["email", "lorem@reichertkrajcik.com"], ["name", "Alexander"], ["password_digest", "$2a$04$eBhWfXe2mU8FzMUDBnXjReMCgMH4Iwvu5YqBqnBsn9EVNzG7wqVEi"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.749739"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by TeachersController#update as JSON
+  Parameters: {"teacher"=>{"name"=>"Alexander"}, "id"=>"980190963"}
+  [1m[36mTeacher Load (0.1ms)[0m  [1mSELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = ? LIMIT 1[0m  [["id", 980190964]]
+  [1m[35mTeacher Load (0.0ms)[0m  SELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = ? LIMIT 1  [["id", 980190963]]
+Filter chain halted as :authorize_teacher rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------------------------
+LecturesControllerTest: test_should_create_with_invalid_params
+--------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "subjects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-09-02 09:30:24.759890"], ["name", "Математика"], ["updated_at", "2014-09-02 09:30:24.759890"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "teachers" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["confirmation_token", "a6RXo4wmt20fieeJUQwJMg"], ["created_at", "2014-09-02 09:30:24.764201"], ["email", "lorem@feil.info"], ["name", "Alexander"], ["password_digest", "$2a$04$3vpwHhEKt/9p.nnDV8PZ6uDuEW4RXqHn/oRiyFIWBTcPOjVUfxhFq"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.764201"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "subjects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-09-02 09:30:24.766055"], ["name", "Математика"], ["updated_at", "2014-09-02 09:30:24.766055"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "lectures" ("created_at", "name", "subject_id", "teacher_id", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2014-09-02 09:30:24.767208"], ["name", "Lecture"], ["subject_id", 2], ["teacher_id", 980190963], ["updated_at", "2014-09-02 09:30:24.767208"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmation_token", "s4LctUeMd_yIk0fIgTr8xQ"], ["created_at", "2014-09-02 09:30:24.771301"], ["email", "lorem@wintheiserwitting.name"], ["name", "Student"], ["password_digest", "$2a$04$swo/Czr8KsG4gL3TY0Ryd.NOn200X2JDv2uLa7QDov78hK.YhdzU2"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.771301"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "teachers" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["confirmation_token", "szAGCsCVS4OcekOCnKEfvw"], ["created_at", "2014-09-02 09:30:24.774825"], ["email", "lorem@gerhold.org"], ["name", "Alexander"], ["password_digest", "$2a$04$h.44LerZcpXhMQu8SiIXwOgFEeLBNnlOBNMRg6A1M5zOmoVbC8lo."], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.774825"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by LecturesController#create as JSON
+  Parameters: {"lecture"=>{"subject_id"=>1, "name"=>""}}
+  [1m[36mTeacher Load (0.1ms)[0m  [1mSELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = ? LIMIT 1[0m  [["id", 980190963]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+Completed 422 Unprocessable Entity in 10ms (Views: 0.3ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------
+LecturesControllerTest: test_should_create_with_student
+-------------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "subjects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-09-02 09:30:24.790919"], ["name", "Математика"], ["updated_at", "2014-09-02 09:30:24.790919"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "teachers" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmation_token", "ZU_KNdfLmnxGHNadZRL3vg"], ["created_at", "2014-09-02 09:30:24.795454"], ["email", "lorem@stamm.org"], ["name", "Alexander"], ["password_digest", "$2a$04$wpM04qnkukOrVnHaBd6yWuRQ45hJeHu4siIkbLsRj4nvvYRq3wRPW"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.795454"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "subjects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-09-02 09:30:24.797385"], ["name", "Математика"], ["updated_at", "2014-09-02 09:30:24.797385"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "lectures" ("created_at", "name", "subject_id", "teacher_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2014-09-02 09:30:24.798573"], ["name", "Lecture"], ["subject_id", 2], ["teacher_id", 980190963], ["updated_at", "2014-09-02 09:30:24.798573"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["confirmation_token", "IIE8XWT9uMwZvZwpRZUCGQ"], ["created_at", "2014-09-02 09:30:24.802835"], ["email", "lorem@nienow.org"], ["name", "Student"], ["password_digest", "$2a$04$FOYWH1LXuNLI.e9fRUvsWeDkcctYtTJ1KZ2dIg0qJ35NN3HcyHtKW"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.802835"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "teachers" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmation_token", "Qdat2q4Q_Sy3HaHxLtdruA"], ["created_at", "2014-09-02 09:30:24.806547"], ["email", "lorem@quigley.org"], ["name", "Alexander"], ["password_digest", "$2a$04$X/JoZnwS8hEZsllbbVlpIOzSczj3Z6XsCH0s7S0Rpwxk0K24SILma"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.806547"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by LecturesController#create as JSON
+  Parameters: {"lecture"=>{"name"=>"Lecture"}}
+  [1m[35mStudent Load (0.1ms)[0m  SELECT  "students".* FROM "students"  WHERE "students"."id" = ? LIMIT 1  [["id", 980190963]]
+Filter chain halted as :lecture_create_authorize rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------------------
+LecturesControllerTest: test_should_create_with_valid_params
+------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "subjects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-09-02 09:30:24.812002"], ["name", "Математика"], ["updated_at", "2014-09-02 09:30:24.812002"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "teachers" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["confirmation_token", "9bR3PHpc6xoVZX3OEBoz8g"], ["created_at", "2014-09-02 09:30:24.816653"], ["email", "lorem@huels.com"], ["name", "Alexander"], ["password_digest", "$2a$04$kUgAw9QomxKXQKwpO983Eug20LV/95WT6QMhBzBsDNgZTxaExM6xy"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.816653"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "subjects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-09-02 09:30:24.818839"], ["name", "Математика"], ["updated_at", "2014-09-02 09:30:24.818839"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "lectures" ("created_at", "name", "subject_id", "teacher_id", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2014-09-02 09:30:24.820072"], ["name", "Lecture"], ["subject_id", 2], ["teacher_id", 980190963], ["updated_at", "2014-09-02 09:30:24.820072"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmation_token", "bKQdSg2rqiDDCDsop9KaZg"], ["created_at", "2014-09-02 09:30:24.879157"], ["email", "lorem@barrows.info"], ["name", "Student"], ["password_digest", "$2a$04$7QVg80Moo7PDdvQz/xjQ7.ODTkWDyy5CNTxDZ0VeFLelpSrqJLP1y"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.879157"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "teachers" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["confirmation_token", "BIDT0nxyBM7N3_wsiXcyBw"], ["created_at", "2014-09-02 09:30:24.883090"], ["email", "lorem@mrazwilliamson.name"], ["name", "Alexander"], ["password_digest", "$2a$04$9rZprVPsQOitaKxNYtu1JuJQK36vs6DvMH0xmvzV5zYM/k7AiAlqO"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.883090"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by LecturesController#create as JSON
+  Parameters: {"lecture"=>{"subject_id"=>1, "name"=>"Lecture"}}
+  [1m[36mTeacher Load (0.1ms)[0m  [1mSELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = ? LIMIT 1[0m  [["id", 980190963]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "lectures" ("created_at", "name", "subject_id", "teacher_id", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2014-09-02 09:30:24.887918"], ["name", "Lecture"], ["subject_id", 1], ["teacher_id", 980190963], ["updated_at", "2014-09-02 09:30:24.887918"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 500 Internal Server Error in 8ms
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------------------
+LecturesControllerTest: test_should_destroy_with_creator
+--------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "subjects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-09-02 09:30:24.895547"], ["name", "Математика"], ["updated_at", "2014-09-02 09:30:24.895547"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "teachers" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["confirmation_token", "Uk-IPCMGyi_8ESfNCcF3wg"], ["created_at", "2014-09-02 09:30:24.899598"], ["email", "lorem@schultz.com"], ["name", "Alexander"], ["password_digest", "$2a$04$r/UK/pzce9MVIT49kcAZBuwqOcV2jMeQiunpQgyTWlZiQKVrOKIhi"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.899598"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "subjects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-09-02 09:30:24.901380"], ["name", "Математика"], ["updated_at", "2014-09-02 09:30:24.901380"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "lectures" ("created_at", "name", "subject_id", "teacher_id", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2014-09-02 09:30:24.902622"], ["name", "Lecture"], ["subject_id", 2], ["teacher_id", 980190963], ["updated_at", "2014-09-02 09:30:24.902622"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmation_token", "Ft-TaT_J_x5sdJO4qtX9oQ"], ["created_at", "2014-09-02 09:30:24.907148"], ["email", "lorem@adams.com"], ["name", "Student"], ["password_digest", "$2a$04$.WwGQADx8j0tLa77JWBg7u/ad0sqRsJ5kckcy8Uldx13qJC7HEcd2"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.907148"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "teachers" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["confirmation_token", "47wvZO8h5YXSmQDSTbBRUg"], ["created_at", "2014-09-02 09:30:24.910848"], ["email", "lorem@ko.name"], ["name", "Alexander"], ["password_digest", "$2a$04$Ikd8tpW1G/odn.fCnfJDk.AwaeTENcvOEO3fuMjyLk/6cMs9ojMye"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.910848"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by LecturesController#destroy as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mTeacher Load (0.1ms)[0m  [1mSELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = ? LIMIT 1[0m  [["id", 980190963]]
+  [1m[35mLectureType Load (0.0ms)[0m  SELECT  "lectures".* FROM "lectures"  WHERE "lectures"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mTeacher Load (0.0ms)[0m  [1mSELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = ? LIMIT 1[0m  [["id", 980190963]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mDocument Load (0.0ms)[0m  [1mSELECT "documents".* FROM "documents"  WHERE "documents"."docable_id" = ? AND "documents"."docable_type" = ?[0m  [["docable_id", 1], ["docable_type", "Lecture"]]
+  [1m[35mVideo Load (0.1ms)[0m  SELECT "videos".* FROM "videos"  WHERE "videos"."lecture_id" = ?  [["lecture_id", 1]]
+  [1m[36mHomework Load (0.1ms)[0m  [1mSELECT "homeworks".* FROM "homeworks"  WHERE "homeworks"."lecture_id" = ?[0m  [["lecture_id", 1]]
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "lectures" WHERE "lectures"."id" = ?  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 9ms (Views: 4.2ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------------
+LecturesControllerTest: test_should_destroy_with_not_creator
+------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "subjects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-09-02 09:30:24.924600"], ["name", "Математика"], ["updated_at", "2014-09-02 09:30:24.924600"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "teachers" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmation_token", "QzToUM8iEk0zYcot-iYuhw"], ["created_at", "2014-09-02 09:30:24.928954"], ["email", "lorem@heathcote.biz"], ["name", "Alexander"], ["password_digest", "$2a$04$8UiiXtljKGMB13c6utL/YOGrg7SLU64g8uwIaWalNVraXHzOJUc0y"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.928954"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "subjects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-09-02 09:30:24.930773"], ["name", "Математика"], ["updated_at", "2014-09-02 09:30:24.930773"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "lectures" ("created_at", "name", "subject_id", "teacher_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2014-09-02 09:30:24.931905"], ["name", "Lecture"], ["subject_id", 2], ["teacher_id", 980190963], ["updated_at", "2014-09-02 09:30:24.931905"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["confirmation_token", "FsfNXOiTCe0Pj2wfJuU1oQ"], ["created_at", "2014-09-02 09:30:24.936028"], ["email", "lorem@mante.name"], ["name", "Student"], ["password_digest", "$2a$04$Z0YF36Sw6bKR1f4981DHM.nDVBD/rmlayQ/oRHHwmP4jmNR9cyuCy"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.936028"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "teachers" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmation_token", "Gz3utxP43DhTyO6Q4DeZ3g"], ["created_at", "2014-09-02 09:30:24.939534"], ["email", "lorem@stamm.com"], ["name", "Alexander"], ["password_digest", "$2a$04$7YZVEWj2QljuEQD0juGXOeGjgcCIDf6P9v.XiPgLrsc3AREdTebMe"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.939534"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by LecturesController#destroy as JSON
+  Parameters: {"id"=>"1"}
+  [1m[35mTeacher Load (0.1ms)[0m  SELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = ? LIMIT 1  [["id", 980190964]]
+  [1m[36mLectureType Load (0.1ms)[0m  [1mSELECT  "lectures".* FROM "lectures"  WHERE "lectures"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mTeacher Load (0.0ms)[0m  SELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = ? LIMIT 1  [["id", 980190963]]
+Filter chain halted as :lecture_destroy_and_update_authorize rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------------------------
+LecturesControllerTest: test_should_index_with_authenticate_user
+----------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "subjects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-09-02 09:30:24.946123"], ["name", "Математика"], ["updated_at", "2014-09-02 09:30:24.946123"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "teachers" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["confirmation_token", "1peK4zDoYex7R8WDtInvPA"], ["created_at", "2014-09-02 09:30:24.950223"], ["email", "lorem@runolfsdottir.org"], ["name", "Alexander"], ["password_digest", "$2a$04$CyxjihcxBulm6k1sYP77TOjaaMmlAXrRX.9686zLq3NP5R9MQPQ9O"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.950223"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "subjects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-09-02 09:30:24.952643"], ["name", "Математика"], ["updated_at", "2014-09-02 09:30:24.952643"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "lectures" ("created_at", "name", "subject_id", "teacher_id", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2014-09-02 09:30:24.954010"], ["name", "Lecture"], ["subject_id", 2], ["teacher_id", 980190963], ["updated_at", "2014-09-02 09:30:24.954010"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmation_token", "AoiZFisKgCZPobBu1zcEFw"], ["created_at", "2014-09-02 09:30:24.958332"], ["email", "lorem@stehr.com"], ["name", "Student"], ["password_digest", "$2a$04$JsEn9Djx0VjugYY8nQd6GeQQ5tLX1EzcBsMFm0XIU4kRRB3mSy9Um"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.958332"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "teachers" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["confirmation_token", "SbzRrHubojEyTeqICPnwrA"], ["created_at", "2014-09-02 09:30:24.961956"], ["email", "lorem@lockman.biz"], ["name", "Alexander"], ["password_digest", "$2a$04$Vuu9MqtQS/FGop35nCuclOc5HKyozxJEVPEsMzl3S4BzgPh74Hy6m"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.961956"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by LecturesController#index as JSON
+  [1m[36mTeacher Load (0.1ms)[0m  [1mSELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = ? LIMIT 1[0m  [["id", 980190963]]
+  [1m[35mLecture Load (0.1ms)[0m  SELECT "lectures".* FROM "lectures"
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------------------------
+LecturesControllerTest: test_should_index_with_unauthenticate_user
+------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "subjects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-09-02 09:30:24.969210"], ["name", "Математика"], ["updated_at", "2014-09-02 09:30:24.969210"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "teachers" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["confirmation_token", "5gnK61F54Tm2wsBZWrCcJg"], ["created_at", "2014-09-02 09:30:24.973356"], ["email", "lorem@cormierkulas.info"], ["name", "Alexander"], ["password_digest", "$2a$04$bKDsVji26Q5UdfiT6KdhBOOdhhL.OT1/IUf69PB4KTJq3pc4rsxr2"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.973356"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "subjects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-09-02 09:30:24.975158"], ["name", "Математика"], ["updated_at", "2014-09-02 09:30:24.975158"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "lectures" ("created_at", "name", "subject_id", "teacher_id", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2014-09-02 09:30:24.976282"], ["name", "Lecture"], ["subject_id", 2], ["teacher_id", 980190963], ["updated_at", "2014-09-02 09:30:24.976282"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmation_token", "SA8nvHCeyE8rRpRlwQwkJw"], ["created_at", "2014-09-02 09:30:24.980155"], ["email", "lorem@beer.biz"], ["name", "Student"], ["password_digest", "$2a$04$eKDHwjQXlWGWoS9xpHHhdOe4LQ8QV0g0Nt27O7tmYGKwuyG5e6o7i"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.980155"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "teachers" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["confirmation_token", "afVVR2B42ZWP4rG4SICGlQ"], ["created_at", "2014-09-02 09:30:24.984510"], ["email", "lorem@keebler.info"], ["name", "Alexander"], ["password_digest", "$2a$04$/EdTbCWJToOwIGPKML2n8eaefne4rjceAEShb9GBUrepOyK1Y6ivS"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.984510"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by LecturesController#index as JSON
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 403 Forbidden in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------------------------
+LecturesControllerTest: test_should_show_with_authenticate_user
+---------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "subjects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-09-02 09:30:24.989453"], ["name", "Математика"], ["updated_at", "2014-09-02 09:30:24.989453"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "teachers" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["confirmation_token", "IuGeLqL1epL-K05mjawSVg"], ["created_at", "2014-09-02 09:30:24.993730"], ["email", "lorem@rolfson.org"], ["name", "Alexander"], ["password_digest", "$2a$04$Jjun7QM9CuG8P/tolROtHevefyP/xiIRCkAi0hXOWp3XufL0KAMti"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:24.993730"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "subjects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-09-02 09:30:24.995518"], ["name", "Математика"], ["updated_at", "2014-09-02 09:30:24.995518"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "lectures" ("created_at", "name", "subject_id", "teacher_id", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2014-09-02 09:30:24.996731"], ["name", "Lecture"], ["subject_id", 2], ["teacher_id", 980190963], ["updated_at", "2014-09-02 09:30:24.996731"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmation_token", "nS7HmQcuHCEA5QAKuHTBkQ"], ["created_at", "2014-09-02 09:30:25.000688"], ["email", "lorem@becker.biz"], ["name", "Student"], ["password_digest", "$2a$04$5wF287Vy/CKIrQDXxBmcz.s5yYDguuNg7mBx/KLh.ims3c5rfSA8."], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:25.000688"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "teachers" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["confirmation_token", "GD64sRY8XsD2PP2-KPbVjw"], ["created_at", "2014-09-02 09:30:25.004191"], ["email", "lorem@bode.net"], ["name", "Alexander"], ["password_digest", "$2a$04$dwG.D13z1EAZf5uUTInWZOjFSZ9c40e5RR2LMjUtBQM9Hu.w0174q"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:25.004191"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by LecturesController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mTeacher Load (0.1ms)[0m  [1mSELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = ? LIMIT 1[0m  [["id", 980190963]]
+  [1m[35mLectureType Load (0.0ms)[0m  SELECT  "lectures".* FROM "lectures"  WHERE "lectures"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mVideo Load (0.1ms)[0m  [1mSELECT "videos".* FROM "videos"  WHERE "videos"."lecture_id" = ?[0m  [["lecture_id", 1]]
+Completed 200 OK in 4ms (Views: 2.3ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------------
+LecturesControllerTest: test_should_show_with_unauthenticate_user
+-----------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "subjects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-09-02 09:30:25.012286"], ["name", "Математика"], ["updated_at", "2014-09-02 09:30:25.012286"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "teachers" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmation_token", "k8ASI6qsB9Tz-79KEXJLyg"], ["created_at", "2014-09-02 09:30:25.017352"], ["email", "lorem@muller.info"], ["name", "Alexander"], ["password_digest", "$2a$04$7opeXTYHBrOk2SJLA/p4Weyl5Rpxo2gIUeBzQUi9BPOE9H5Ga68ku"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:25.017352"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "subjects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-09-02 09:30:25.019389"], ["name", "Математика"], ["updated_at", "2014-09-02 09:30:25.019389"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "lectures" ("created_at", "name", "subject_id", "teacher_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2014-09-02 09:30:25.020531"], ["name", "Lecture"], ["subject_id", 2], ["teacher_id", 980190963], ["updated_at", "2014-09-02 09:30:25.020531"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["confirmation_token", "rxvP9AJVxngWy6hqdWrZLg"], ["created_at", "2014-09-02 09:30:25.024543"], ["email", "lorem@king.biz"], ["name", "Student"], ["password_digest", "$2a$04$ZChZ5tn5YbtGVRjeNsKoC.qs.j2mbUw8Sh1ojw95rJSpNR.wtJKc."], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:25.024543"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "teachers" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmation_token", "IQLnYYXBuMzu9ZJEDUkAVg"], ["created_at", "2014-09-02 09:30:25.028208"], ["email", "lorem@hamill.net"], ["name", "Alexander"], ["password_digest", "$2a$04$s6K0fkXIpGsf2JDrumOUmeYblp2KoPdz38PiFjGqs3.XK5au9gmxC"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:25.028208"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by LecturesController#show as JSON
+  Parameters: {"id"=>"1"}
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 403 Forbidden in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------------
+LecturesControllerTest: test_should_update_with_creator
+-------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "subjects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-09-02 09:30:25.033046"], ["name", "Математика"], ["updated_at", "2014-09-02 09:30:25.033046"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "teachers" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmation_token", "k8B3_TH0Lt9ylK71zfPN4A"], ["created_at", "2014-09-02 09:30:25.037227"], ["email", "lorem@rath.biz"], ["name", "Alexander"], ["password_digest", "$2a$04$k29TY34UEguvBXe4rpwdo.aqKyliY8kloYc9xP8Ais/7x35cjsSQm"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:25.037227"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "subjects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-09-02 09:30:25.038977"], ["name", "Математика"], ["updated_at", "2014-09-02 09:30:25.038977"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "lectures" ("created_at", "name", "subject_id", "teacher_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2014-09-02 09:30:25.040085"], ["name", "Lecture"], ["subject_id", 2], ["teacher_id", 980190963], ["updated_at", "2014-09-02 09:30:25.040085"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "students" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["confirmation_token", "zwOInN3ILoIVvHKc-kLyyw"], ["created_at", "2014-09-02 09:30:25.044637"], ["email", "lorem@dachgulgowski.info"], ["name", "Student"], ["password_digest", "$2a$04$ApIgPkk5KDU8CoyMLOsKkupKlvfOYm3RgQjW0lvo.41pnkI8vmq8i"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:25.044637"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "teachers" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmation_token", "3ZTZ0tRxJJMEh5xISfe8-w"], ["created_at", "2014-09-02 09:30:25.048857"], ["email", "lorem@zboncakshanahan.org"], ["name", "Alexander"], ["password_digest", "$2a$04$NXcAowsbhzGX6CuGu9JxaOhED8DCD2NWiEw.OGGm.pU18u.5FYd9G"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:25.048857"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by LecturesController#update as JSON
+  Parameters: {"lecture"=>{"name"=>"Lecture"}, "id"=>"1"}
+  [1m[35mTeacher Load (0.1ms)[0m  SELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = ? LIMIT 1  [["id", 980190963]]
+  [1m[36mLectureType Load (0.0ms)[0m  [1mSELECT  "lectures".* FROM "lectures"  WHERE "lectures"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mTeacher Load (0.0ms)[0m  SELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = ? LIMIT 1  [["id", 980190963]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mDocument Load (0.0ms)[0m  SELECT "documents".* FROM "documents"  WHERE "documents"."docable_id" = ? AND "documents"."docable_type" = ?  [["docable_id", 1], ["docable_type", "Lecture"]]
+  [1m[36mVideo Load (0.0ms)[0m  [1mSELECT "videos".* FROM "videos"  WHERE "videos"."lecture_id" = ?[0m  [["lecture_id", 1]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 200 OK in 5ms (Views: 1.4ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------------------
+LecturesControllerTest: test_should_update_with_not_creator
+-----------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "subjects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-09-02 09:30:25.058845"], ["name", "Математика"], ["updated_at", "2014-09-02 09:30:25.058845"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "teachers" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["confirmation_token", "eXaNStMqZV0WX51S86WSSQ"], ["created_at", "2014-09-02 09:30:25.063152"], ["email", "lorem@kuhic.biz"], ["name", "Alexander"], ["password_digest", "$2a$04$589ySAZDPn4pjAS6lA.A4..3NNJNNszGCBBjbwyh88NkLX6MuEf3S"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:25.063152"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "subjects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-09-02 09:30:25.064874"], ["name", "Математика"], ["updated_at", "2014-09-02 09:30:25.064874"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "lectures" ("created_at", "name", "subject_id", "teacher_id", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2014-09-02 09:30:25.066040"], ["name", "Lecture"], ["subject_id", 2], ["teacher_id", 980190963], ["updated_at", "2014-09-02 09:30:25.066040"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmation_token", "GCvEpGLCn4phvnTmYo_ofg"], ["created_at", "2014-09-02 09:30:25.070019"], ["email", "lorem@brown.com"], ["name", "Student"], ["password_digest", "$2a$04$gMMpY3.jOrRSRmoDpzLjTeNOqgKOnaCyObT0.l48msCJQOucLQ4Va"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:25.070019"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "teachers" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["confirmation_token", "UJSyuCiPkksD6CyjB1mF9A"], ["created_at", "2014-09-02 09:30:25.073475"], ["email", "lorem@mccullough.name"], ["name", "Alexander"], ["password_digest", "$2a$04$8iE.x53VErQEpUEI5o48/uUh4T0.RvcdKoakC1uO6VMv9JIWZpwCK"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:25.073475"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by LecturesController#update as JSON
+  Parameters: {"lecture"=>{"name"=>"Lecture"}, "id"=>"1"}
+  [1m[36mTeacher Load (0.1ms)[0m  [1mSELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = ? LIMIT 1[0m  [["id", 980190964]]
+  [1m[35mLectureType Load (0.0ms)[0m  SELECT  "lectures".* FROM "lectures"  WHERE "lectures"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mTeacher Load (0.0ms)[0m  [1mSELECT  "teachers".* FROM "teachers"  WHERE "teachers"."id" = ? LIMIT 1[0m  [["id", 980190963]]
+Filter chain halted as :lecture_destroy_and_update_authorize rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------------------------
+NoticesControllerTest: test_should_destroy_notice_with_authorize_user
+---------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "notices" ("created_at", "text", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-09-02 09:30:25.088056"], ["text", "WOW text"], ["updated_at", "2014-09-02 09:30:25.088056"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "teachers" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmation_token", "MLYNb0rzisOG8wvP0QnUPQ"], ["created_at", "2014-09-02 09:30:25.092136"], ["email", "lorem@andersonpagac.name"], ["name", "Alexander"], ["password_digest", "$2a$04$mLEfKZTA78dhgZbjWXNGbOD6A./suZEIJHobhdkKfJNId32/YLjBq"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:25.092136"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------------------
+NoticesControllerTest: test_should_read_notice_with_authorize_user
+------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "notices" ("created_at", "text", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-09-02 09:30:25.094997"], ["text", "WOW text"], ["updated_at", "2014-09-02 09:30:25.094997"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "teachers" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmation_token", "J8ecwpfxfN8KubX9pFWOxw"], ["created_at", "2014-09-02 09:30:25.098565"], ["email", "lorem@gerlach.com"], ["name", "Alexander"], ["password_digest", "$2a$04$nyTNuYduYUKvzVeT4Lh3C.LyBNZOvgrQCgUiJUAQCxbqsBpORe8AG"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:25.098565"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+AdminsControllerTest: test_should_create_admin
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------
+AdminsControllerTest: test_should_destroy_admin
+-----------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------------
+AdminsControllerTest: test_should_get_edit
+------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------
+AdminsControllerTest: test_should_get_index
+-------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-----------------------------------------
+AdminsControllerTest: test_should_get_new
+-----------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------------------
+AdminsControllerTest: test_should_show_admin
+--------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+AdminsControllerTest: test_should_update_admin
+----------------------------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------------------
+AdminsControllerTest: test_should_update_password
+-------------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------
+StudentsControllerTest: test_should_create_with_invalid_params
+--------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["confirmation_token", "PONH_lgfqmM2xA7aCUWlXg"], ["created_at", "2014-09-02 09:30:25.123380"], ["email", "lorem@kilback.name"], ["name", "Student"], ["password_digest", "$2a$04$47qdMB8K6Ik8ShQIL74mGeOaa/yCd2WUibrzSWHLGneAita1zgwCi"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:25.123380"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "subjects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-09-02 09:30:25.126176"], ["name", "Математика"], ["updated_at", "2014-09-02 09:30:25.126176"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StudentsController#create as JSON
+  Parameters: {"student"=>{"email"=>"florentiyygmail.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUsers::StudentRegistrationType Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "students"  WHERE "students"."email" = 'florentiyygmail.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+Completed 422 Unprocessable Entity in 11ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------------------
+StudentsControllerTest: test_should_create_with_valid_params
+------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmation_token", "Z085Bhls4JYEgk87aAZSNw"], ["created_at", "2014-09-02 09:30:25.144935"], ["email", "lorem@walsh.com"], ["name", "Student"], ["password_digest", "$2a$04$tPjeiz13TKPmitwgMvf.b.dbMi7wg.erpKcotROzS8vAsWaaD4Tm6"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:25.144935"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "subjects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-09-02 09:30:25.147693"], ["name", "Математика"], ["updated_at", "2014-09-02 09:30:25.147693"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StudentsController#create as JSON
+  Parameters: {"student"=>{"email"=>"florentiyy@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUsers::StudentRegistrationType Exists (0.1ms)[0m  SELECT  1 AS one FROM "students"  WHERE "students"."email" = 'florentiyy@gmail.com' LIMIT 1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("confirmation_token", "created_at", "email", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["confirmation_token", "YFbNlHJMzKKRyDYEGxXTeg"], ["created_at", "2014-09-02 09:30:25.153962"], ["email", "florentiyy@gmail.com"], ["password_digest", "$2a$04$q15BfYyahflAAH2mRt/eLe7MRXdBBs2lyNrwkS8vCXklOuA6.RJDq"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:25.153962"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+
+UserMailer#confirmation_email: processed outbound mail in 5.0ms
+
+Sent mail to florentiyy@gmail.com (4.7ms)
+Date: Tue, 02 Sep 2014 13:30:25 +0400
+From: fansarmailer@gmail.com
+To: florentiyy@gmail.com
+Message-ID: <54058e313ae47_225d91e9489525@olegeg-RC530-RC730.mail>
+Subject: =?UTF-8?Q?=D0=9F=D0=BE=D0=B4=D1=82=D0=B2=D0=B5=D1=80=D0=B6=D0=B4=D0=B5=D0=BD=D0=B8=D0=B5?=
+ =?UTF-8?Q?_=D1=80=D0=B5=D0=B3=D0=B8=D1=81=D1=82=D1=80=D0=B0=D1=86=D0=B8=D0=B8?=
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: base64
+
+0JfQtNGA0LDQstGB0YLQstGD0LnRgtC1LCDQo9GH0LXQvdC40LoK0J/QvtC0
+0YLQstC10YDQtNC40YLQtSDRgdCy0L7QuSDQsNC60LrQsNGD0L3Rgi4K0KHR
+i9C70LvQutCwINC00LvRjyDQv9C+0LTRgtCy0LXRgNC20LTQtdC90LjRjyA6
+IAo8YSBocmVmPSJodHRwOi8vbG9jYWxob3N0OjMwMDAvc3R1ZGVudHMvOTgw
+MTkwOTY0L3JlZ2lzdHJhdGlvbl9jb25maXJtP2NvbmZpcm1hdGlvbl90b2tl
+bj1ZRmJObEhKTXpLS1J5RFlFR3hYVGVnIj7Qn9C+0LTRgtCy0LXRgNC00LjR
+gtGMINCw0LrQutCw0YPQvdGCPC9hPgo=
+
+Completed 201 Created in 99ms (Views: 3.4ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------------------------
+StudentsControllerTest: test_should_destroy_with_autorized_student
+------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmation_token", "E7yhJdGxVO6a8Y_b5rLLpQ"], ["created_at", "2014-09-02 09:30:25.253313"], ["email", "lorem@oconnell.info"], ["name", "Student"], ["password_digest", "$2a$04$.JyJGfj0lUmmSGdLQjPuyuGHiWYJ8Ti32Zyx25WzJvZz7VwRMWUI6"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:25.253313"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "subjects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-09-02 09:30:25.256045"], ["name", "Математика"], ["updated_at", "2014-09-02 09:30:25.256045"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StudentsController#destroy as JSON
+  Parameters: {"id"=>"980190963"}
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students"  WHERE "students"."id" = ? LIMIT 1[0m  [["id", 980190963]]
+  [1m[35mStudent Load (0.0ms)[0m  SELECT  "students".* FROM "students"  WHERE "students"."id" = ? LIMIT 1  [["id", 980190963]]
+  [1m[36mStudent Load (0.0ms)[0m  [1mSELECT  "students".* FROM "students"  WHERE "students"."id" = ? LIMIT 1[0m  [["id", 980190963]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mHomework Load (0.1ms)[0m  [1mSELECT "homeworks".* FROM "homeworks"  WHERE "homeworks"."student_id" = ?[0m  [["student_id", 980190963]]
+  [1m[35mNotice Load (0.0ms)[0m  SELECT "notices".* FROM "notices"  WHERE "notices"."noticable_id" = ? AND "notices"."noticable_type" = ?  [["noticable_id", 980190963], ["noticable_type", "Student"]]
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "students" WHERE "students"."id" = ?[0m  [["id", 980190963]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 200 OK in 7ms (Views: 1.3ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------------------------
+StudentsControllerTest: test_should_destroy_with_unauthorized_user
+------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmation_token", "yPCvLjTO7k-9tjJdy6LKqw"], ["created_at", "2014-09-02 09:30:25.269405"], ["email", "lorem@yost.biz"], ["name", "Student"], ["password_digest", "$2a$04$x//SPsNlztcdQnN4Bn17NeAIz0eOxsPidl8vrLcKIMkknCwBDzXte"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:25.269405"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "subjects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-09-02 09:30:25.272204"], ["name", "Математика"], ["updated_at", "2014-09-02 09:30:25.272204"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmation_token", "TJZBqw21HGMAPzpQkrefBw"], ["created_at", "2014-09-02 09:30:25.275687"], ["email", "lorem@hegmannvolkman.org"], ["name", "Student"], ["password_digest", "$2a$04$eGv4H/yKqwdDLmHH4V6EH.GF0Ertf03CmB9gvbZb9Tnb85L47Ghd."], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:25.275687"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StudentsController#destroy as JSON
+  Parameters: {"id"=>"980190963"}
+  [1m[35mStudent Load (0.1ms)[0m  SELECT  "students".* FROM "students"  WHERE "students"."id" = ? LIMIT 1  [["id", 980190964]]
+  [1m[36mStudent Load (0.0ms)[0m  [1mSELECT  "students".* FROM "students"  WHERE "students"."id" = ? LIMIT 1[0m  [["id", 980190963]]
+  [1m[35mStudent Load (0.0ms)[0m  SELECT  "students".* FROM "students"  WHERE "students"."id" = ? LIMIT 1  [["id", 980190963]]
+Filter chain halted as :authorize_student rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------------------------------
+StudentsControllerTest: test_should_index_with_with_authenticated_user
+----------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmation_token", "ebGphYTEUKTZnPclnR0tVA"], ["created_at", "2014-09-02 09:30:25.285719"], ["email", "lorem@veumconsidine.info"], ["name", "Student"], ["password_digest", "$2a$04$LuztPfQUipcUFTXxm6CjDua.8vX3CX/ijVfKQgbETnpzhXO9a/JO."], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:25.285719"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "subjects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-09-02 09:30:25.288429"], ["name", "Математика"], ["updated_at", "2014-09-02 09:30:25.288429"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StudentsController#index as JSON
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students"  WHERE "students"."id" = ? LIMIT 1[0m  [["id", 980190963]]
+  [1m[35mStudent Load (0.2ms)[0m  SELECT "students".* FROM "students"
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------------------------------------
+StudentsControllerTest: test_should_index_with_with_unauthenticated_user
+------------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmation_token", "z26Oj8W4Zo-L0JC9e_BE5g"], ["created_at", "2014-09-02 09:30:25.298184"], ["email", "lorem@goldner.name"], ["name", "Student"], ["password_digest", "$2a$04$NYMurN/9EURhwGr3yT//CeGPwl7wjFBYpOehIZroRXySiwhIObMOG"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:25.298184"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "subjects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-09-02 09:30:25.300909"], ["name", "Математика"], ["updated_at", "2014-09-02 09:30:25.300909"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StudentsController#index as JSON
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 403 Forbidden in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------------------------------
+StudentsControllerTest: test_should_registration_confirm
+--------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmation_token", "YaOKukdq-cTC0s5BPnGTFw"], ["created_at", "2014-09-02 09:30:25.307784"], ["email", "lorem@schambergerfadel.biz"], ["name", "Student"], ["password_digest", "$2a$04$dBlBACan0ppmxyaMEhOOd.7vHZ.unN49DHAGQHE8LOdPHC7td0ISe"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:25.307784"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "subjects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-09-02 09:30:25.310935"], ["name", "Математика"], ["updated_at", "2014-09-02 09:30:25.310935"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StudentsController#registration_confirm as JSON
+  Parameters: {"confirmation_token"=>"YaOKukdq-cTC0s5BPnGTFw", "id"=>"980190963"}
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students"  WHERE "students"."id" = ? LIMIT 1[0m  [["id", 980190963]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "students" SET "confirmation_token" = ?, "state" = ?, "updated_at" = ? WHERE "students"."id" = 980190963[0m  [["confirmation_token", "2Xi6RZfVohCrI5j4amDosg"], ["state", "active"], ["updated_at", "2014-09-02 09:30:25.315560"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-------------------------------------------------------------------
+StudentsControllerTest: test_should_show_with_authenticated_student
+-------------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmation_token", "TTw7y7x9HIXrucp690KXyg"], ["created_at", "2014-09-02 09:30:25.320958"], ["email", "lorem@osinski.com"], ["name", "Student"], ["password_digest", "$2a$04$QXH4LOnvFMkfsD09IM3ZUOpZhXbYF3T/uShRxgJCZDYvexHMhU3xK"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:25.320958"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "subjects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-09-02 09:30:25.323668"], ["name", "Математика"], ["updated_at", "2014-09-02 09:30:25.323668"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StudentsController#show as JSON
+  Parameters: {"id"=>"980190963"}
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students"  WHERE "students"."id" = ? LIMIT 1[0m  [["id", 980190963]]
+  [1m[35mStudent Load (0.0ms)[0m  SELECT  "students".* FROM "students"  WHERE "students"."id" = ? LIMIT 1  [["id", 980190963]]
+  [1m[36mNotice Load (0.1ms)[0m  [1mSELECT "notices".* FROM "notices"  WHERE "notices"."noticable_id" = ? AND "notices"."noticable_type" = ?[0m  [["noticable_id", 980190963], ["noticable_type", "Student"]]
+Completed 200 OK in 4ms (Views: 2.2ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------------------------
+StudentsControllerTest: test_should_show_with_unauthenticated_student
+---------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["confirmation_token", "9aMtILV-Bp7kTyq4k8UBgQ"], ["created_at", "2014-09-02 09:30:25.333865"], ["email", "lorem@mosciski.org"], ["name", "Student"], ["password_digest", "$2a$04$s06rIivtGRIS3xnPDrPyGeLK2PW2kLd6gye45tIx8SDe6MhDmMmc."], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:25.333865"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "subjects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-09-02 09:30:25.336495"], ["name", "Математика"], ["updated_at", "2014-09-02 09:30:25.336495"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StudentsController#show as JSON
+  Parameters: {"id"=>"980190963"}
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 403 Forbidden in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------------------------------------
+StudentsControllerTest: test_should_show_with_unauthenticated_user
+------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "students" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["confirmation_token", "2QIF26NzxNBQhOIMpEV7ww"], ["created_at", "2014-09-02 09:30:25.344206"], ["email", "lorem@gleasonjakubowski.net"], ["name", "Student"], ["password_digest", "$2a$04$/M2kjPWdlT2vOS1q31B9zOQQu/de3agYwX.OvyjpZEbxFCq6lz8ny"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:25.344206"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "subjects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-09-02 09:30:25.347075"], ["name", "Математика"], ["updated_at", "2014-09-02 09:30:25.347075"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StudentsController#show as JSON
+  Parameters: {"id"=>"980190963"}
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 403 Forbidden in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------------------------------------------------
+StudentsControllerTest: test_should_subscribe_to_subject_with_student
+---------------------------------------------------------------------
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["confirmation_token", "vq16BkojjhdGZgo8OLuqhg"], ["created_at", "2014-09-02 09:30:25.354167"], ["email", "lorem@hilpert.biz"], ["name", "Student"], ["password_digest", "$2a$04$JYI0VD3nePlnFUg7p5J7nesfUX4B6hs045vRy3t/awMPsz2Jes6Sm"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:25.354167"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "subjects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-09-02 09:30:25.356824"], ["name", "Математика"], ["updated_at", "2014-09-02 09:30:25.356824"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StudentsController#subscribe_to_subject as JSON
+  Parameters: {"subject_id"=>1, "id"=>"980190963"}
+  [1m[35mStudent Load (0.1ms)[0m  SELECT  "students".* FROM "students"  WHERE "students"."id" = ? LIMIT 1  [["id", 980190963]]
+  [1m[36mStudent Load (0.0ms)[0m  [1mSELECT  "students".* FROM "students"  WHERE "students"."id" = ? LIMIT 1[0m  [["id", 980190963]]
+  [1m[35mSubject Load (0.1ms)[0m  SELECT  "subjects".* FROM "subjects"  WHERE "subjects"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSubjectStudent Exists (0.1ms)[0m  SELECT  1 AS one FROM "subject_students"  WHERE ("subject_students"."student_id" = 980190963 AND "subject_students"."subject_id" = 1) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "subject_students" ("created_at", "student_id", "subject_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2014-09-02 09:30:25.374581"], ["student_id", 980190963], ["subject_id", 1], ["updated_at", "2014-09-02 09:30:25.374581"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 200 OK in 17ms (Views: 0.2ms | ActiveRecord: 0.9ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+---------------------------------------------------
+StudentsControllerTest: test_should_update_password
+---------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmation_token", "ClujN7VTI0mQIWnUn4SfXA"], ["created_at", "2014-09-02 09:30:25.380376"], ["email", "lorem@grady.com"], ["name", "Student"], ["password_digest", "$2a$04$Ne.PQ/ZTNHmapDA1QxUaXOo2aWSe/ghhgrldDZwS8hNBB.B3CQBji"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:25.380376"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "subjects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-09-02 09:30:25.382974"], ["name", "Математика"], ["updated_at", "2014-09-02 09:30:25.382974"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by StudentsController#update_password as JSON
+  Parameters: {"student"=>{"password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "id"=>"980190963"}
+  [1m[36mStudent Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students"  WHERE "students"."id" = ? LIMIT 1[0m  [["id", 980190963]]
+  [1m[35mStudent Load (0.0ms)[0m  SELECT  "students".* FROM "students"  WHERE "students"."id" = ? LIMIT 1  [["id", 980190963]]
+  [1m[36mUsers::StudentPasswordUpdateType Load (0.1ms)[0m  [1mSELECT  "students".* FROM "students"  WHERE "students"."id" = ? LIMIT 1[0m  [["id", 980190963]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+Binary data inserted for `string` type on column `password_digest`
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "students" SET "confirmation_token" = ?, "password_digest" = ?, "updated_at" = ? WHERE "students"."id" = 980190963[0m  [["confirmation_token", "j2ljGPGmtrQJdagC8vKekQ"], ["password_digest", "$2a$04$9ttKTms97YahfqdG7dy7Q.y4I9v6h6Kjsl3PjJtG.QvfJTO0X8mkK"], ["updated_at", "2014-09-02 09:30:25.402476"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Completed 200 OK in 19ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------------------------
+StudentsControllerTest: test_should_update_with_unauthorized_user
+-----------------------------------------------------------------
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "students" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmation_token", "1Sl4DoDPmeXgrf1gEL0HGw"], ["created_at", "2014-09-02 09:30:25.408719"], ["email", "lorem@runolfsdottirstoltenberg.net"], ["name", "Student"], ["password_digest", "$2a$04$XTdX4QDbvI0LWmpIoIRGyuz7iLI4rLzKjaGaSeUF7gwUnrqAgeXzy"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:25.408719"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "subjects" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", "2014-09-02 09:30:25.411319"], ["name", "Математика"], ["updated_at", "2014-09-02 09:30:25.411319"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "students" ("confirmation_token", "created_at", "email", "name", "password_digest", "state", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["confirmation_token", "YPcuqkCSbYSRkA_IkXlSjA"], ["created_at", "2014-09-02 09:30:25.414769"], ["email", "lorem@heidenreich.info"], ["name", "Student"], ["password_digest", "$2a$04$Ft9E7BpOPipxMow6StLSM.OxJt0dqhCIWL/bKddNS13yFZTuZIp5O"], ["state", "inactive"], ["updated_at", "2014-09-02 09:30:25.414769"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by StudentsController#update as JSON
+  Parameters: {"student"=>{"name"=>"Student", "password"=>"[FILTERED]"}, "id"=>"980190963"}
+  [1m[35mStudent Load (0.1ms)[0m  SELECT  "students".* FROM "students"  WHERE "students"."id" = ? LIMIT 1  [["id", 980190964]]
+  [1m[36mStudent Load (0.0ms)[0m  [1mSELECT  "students".* FROM "students"  WHERE "students"."id" = ? LIMIT 1[0m  [["id", 980190963]]
+Filter chain halted as :authorize_student rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.2ms)[0m  rollback transaction

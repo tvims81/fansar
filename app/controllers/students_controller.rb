@@ -51,8 +51,6 @@ class StudentsController < ApplicationController
 	def index
   		@search = Student.search(params[:q])
   		@students = @search.result
-  		@search.build_condition if @search.conditions.empty?
-  		@search.build_sort if @search.sorts.empty?
 	end
 
   def reset_password

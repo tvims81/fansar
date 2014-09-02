@@ -14,17 +14,20 @@ Rails.application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
 
-  ActionMailer::Base.smtp_settings = {
-    :address => 'smtp.gmail.com',
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+    :address => "smtp.gmail.com",
     :port => 587,
-    :domain => 'mydomain.ru',
+    :domain => "gmail.com",
+    enable_starttls_auto: true,
     :authentication => :plain,
-    :user_name => 'fansarmailer@gmail.com',
-    :password => 'fansar123'
+    :user_name => "fansarmailer@gmail.com",
+    :password => "123fansar"
   }
 
 
